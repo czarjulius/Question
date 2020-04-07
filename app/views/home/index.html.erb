@@ -4,35 +4,18 @@
     Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
 </div>
 <div class="container">
-    <div class="media">
-    <img src="..." class="mr-3" alt="...">
-    <div class="media-body">
-        <h5 class="mt-0">Media heading</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <div>
-        <a href="/questions/12" class="btn btn-success btn-xs"> View Answers</a>
-        </div>
-    </div>
+    <% @questions.each do |question|%>
+    <div class="media mb-3">
+        <img src="<%= question.gravatar%>" class="mr-3" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0"><%= question.email%> asked:</h5>
+            <div> <%= time_ago_in_words question.created_at%> ago</div>
 
-    </div>
-    <div class="media">
-    <img src="..." class="mr-3" alt="...">
-    <div class="media-body">
-        <h5 class="mt-0">Media heading</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <div>
-            <a href="/questions/12" class="btn btn-success btn-xs"> View Answers</a>
+            <%= question.body%>
+            <div>
+            <a href="<%= question_path(question)%>" class="btn btn-success btn-xs"> View Answers</a>
+            </div>
         </div>
     </div>
-    </div>
-    <div class="media">
-    <img src="..." class="mr-3" alt="...">
-    <div class="media-body">
-        <h5 class="mt-0">Media heading</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <div>
-            <a href="/questions/12" class="btn btn-success btn-xs"> View Answers</a>
-        </div>
-    </div>
-    </div>
+    <%end%>
 </div>
