@@ -3,9 +3,9 @@
         <div class="media">
         <img src="<%= @question.gravatar %>" class="mr-3" alt="...">
         <div class="media-body">
-            <h5 class="mt-0">Media heading</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </div>
+            <h5 class="mt-0"><%= @question.email %></h5>
+            <%= @question.body %>
+            </div>
         </div>
     </div>
 
@@ -30,6 +30,12 @@
                 </div>
             </div>
             <% end %>
+
+            <% if @answers.empty?%>
+                <div class="alert alert-primary" role="alert">
+                    There's no answer found yet!
+                </div>
+            <%end%>
         </div>
     </div>
 
