@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :answers
   resources :questions
-  root 'home#index'
+  root 'home#index', as: :user_root
   get 'home/about'
   post 'questions/questions'
   post 'home/answers' => 'home#temp'
